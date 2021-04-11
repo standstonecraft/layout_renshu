@@ -1,0 +1,246 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <!-- https://getbootstrap.jp/docs/4.5/getting-started/introduction/ -->
+    <link
+      rel="stylesheet"
+      href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css"
+      integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk"
+      crossorigin="anonymous"
+    />
+    <!-- https://icons.getbootstrap.com/ -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.4.1/font/bootstrap-icons.css" />
+    <!-- https://github.com/jonmiles/bootstrap-treeview -->
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-treeview/1.2.0/bootstrap-treeview.min.css"
+      integrity="sha512-A81ejcgve91dAWmCGseS60zjrAdohm7PTcAjjiDWtw3Tcj91PNMa1gJ/ImrhG+DbT5V+JQ5r26KT5+kgdVTb5w=="
+      crossorigin="anonymous"
+    />
+    <link rel="stylesheet" href="style.css" />
+    <!-- print portrait by default -->
+    <link rel="stylesheet" href="printLandscape.css" title="printLandscape" disabled="true" />
+  </head>
+  <body>
+    <div class="h-100 d-flex align-items-start flex-column align-items-stretch">
+      <header class="m-0 container-fluid bg-dark text-light d-flex no-print">
+        <div class="nav flex-grow-1">
+          <a class="nav-link text-light" href="#" id="menuButton"><i class="bi bi-list"></i></a>
+          <a class="nav-link text-light" href="index.html">Home</a>
+          <a class="nav-link text-light" href="#">Link</a>
+          <a class="nav-link text-light" href="#">Link</a>
+          <a class="nav-link text-light" href="#">Link</a>
+        </div>
+        <div class="nav">
+          <div class="navbar-text"><i class="bi bi-person-fill mr-1"></i><span>John Doe</span></div>
+        </div>
+      </header>
+      <div class="m-0 flex-grow-1 d-flex">
+        <div class="h-100 contentLeft no-print">
+          <div class="h-100 d-flex flex-column">
+            <aside class="flex-grow-1 mb-auto">
+              <div class="p-3">
+                <span>MENU</span>
+              </div>
+              <div id="tree"></div>
+            </aside>
+          </div>
+        </div>
+        <div class="h-100 contentRight">
+          <div class="h-100 d-flex flex-column">
+            <main class="px-2 bt-2 flex-grow-1 mb-auto">
+              <h2>Text</h2>
+              <p>
+                This page is demo about:
+                <ul>
+                  <li>Fixed layout (Bootstrap)
+                    <ul>
+                      <li>Fixed slim header</li>
+                      <li>Collapsible & Scrollable sticky sidebar</li>
+                      <li>Scrollable content area</li>
+                      <li>Fixed footer</li>
+                    </ul>
+                  </li>
+                  <li>Collapsible tree manu (Bootstrap Treeview)
+                    <ul>
+                      <li>Highlight menu item of opend page automatically</li>
+                    </ul>
+                  </li>
+                  <li>Icon font (Bootstrap Icons)</li>
+                  <li>Layout for printing
+                    <ul>
+                      <li>Print content only</li>
+                      <li>Print Full Width</li>
+                      <li>Force or switch orientation of pages</li>
+                    </ul>
+                  </li>
+                </ul>
+              </p>
+              <h2>Overflow</h2>
+              <div class="pr-3" style="width: max-content">
+                <table class="table table-bordered">
+                  <thead>
+                    <tr>
+                      <td>Lorem</td>
+                      <td>ipsum</td>
+                      <td>dolor</td>
+                      <td>sit</td>
+                      <td>amet,</td>
+                      <td>consectetur</td>
+                      <td>adipisicing</td>
+                      <td>elit.</td>
+                      <td>Molestias,</td>
+                      <td>aut.</td>
+                      <td>Esse</td>
+                      <td>sint</td>
+                      <td>assumenda</td>
+                      <td>Lorem</td>
+                      <td>ipsum</td>
+                      <td>dolor</td>
+                      <td>sit</td>
+                      <td>amet,</td>
+                      <td>consectetur</td>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    <tr>
+                      <td>Lorem</td>
+                      <td>ipsum</td>
+                      <td>dolor</td>
+                      <td>sit</td>
+                      <td>amet,</td>
+                      <td>consectetur</td>
+                      <td>adipisicing</td>
+                      <td>elit.</td>
+                      <td>Molestias,</td>
+                      <td>aut.</td>
+                      <td>Esse</td>
+                      <td>sint</td>
+                      <td>assumenda</td>
+                      <td>Lorem</td>
+                      <td>ipsum</td>
+                      <td>dolor</td>
+                      <td>sit</td>
+                      <td>amet,</td>
+                      <td>consectetur</td>
+                    </tr>
+                  </tbody>
+                </table>
+              </div>
+              <h2>Texts for scroll</h2>
+              <p>
+                <button
+                  class="btn btn-primary"
+                  type="button"
+                  data-toggle="collapse"
+                  data-target="#collapseExample"
+                  aria-expanded="false"
+                  aria-controls="collapseExample"
+                >
+                  Expand
+                </button>
+              </p>
+              <div class="collapse mb-2" id="collapseExample">
+                <div class="card card-body">
+                  <p>
+                    Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore
+                    et dolore magna aliqua. Amet risus nullam eget felis eget. Est lorem ipsum dolor sit amet
+                    consectetur adipiscing elit. Mi in nulla posuere sollicitudin aliquam ultrices sagittis. Augue lacus
+                    viverra vitae congue eu consequat ac felis donec. Auctor elit sed vulputate mi sit amet mauris.
+                    Blandit cursus risus at ultrices mi tempus imperdiet nulla. Id diam vel quam elementum. Velit
+                    aliquet sagittis id consectetur. In egestas erat imperdiet sed euismod nisi porta. Egestas pretium
+                    aenean pharetra magna ac placerat vestibulum. Vivamus at augue eget arcu dictum varius duis at. Amet
+                    nulla facilisi morbi tempus. Morbi tincidunt ornare massa eget egestas purus viverra accumsan.
+                    Egestas dui id ornare arcu. Elementum nibh tellus molestie nunc non blandit. Volutpat maecenas
+                    volutpat blandit aliquam etiam erat velit. Velit laoreet id donec ultrices tincidunt arcu non.
+                    Libero justo laoreet sit amet cursus. Nulla facilisi nullam vehicula ipsum a arcu cursus vitae.
+                  </p>
+                  <p>
+                    In nibh mauris cursus mattis molestie a iaculis. Velit ut tortor pretium viverra suspendisse potenti
+                    nullam ac. Interdum velit laoreet id donec ultrices tincidunt arcu non sodales. In hendrerit gravida
+                    rutrum quisque non tellus. Sem fringilla ut morbi tincidunt augue. At ultrices mi tempus imperdiet
+                    nulla malesuada pellentesque elit eget. Fermentum odio eu feugiat pretium nibh ipsum. Faucibus purus
+                    in massa tempor nec feugiat nisl. Sodales ut eu sem integer vitae. Diam quam nulla porttitor massa
+                    id neque.
+                  </p>
+                  <p>
+                    Leo in vitae turpis massa sed. Amet nulla facilisi morbi tempus iaculis urna id. Volutpat commodo
+                    sed egestas egestas fringilla. Elit at imperdiet dui accumsan sit amet nulla. Risus commodo viverra
+                    maecenas accumsan lacus vel facilisis volutpat est. Gravida neque convallis a cras semper auctor. In
+                    mollis nunc sed id semper. Nascetur ridiculus mus mauris vitae ultricies leo integer. Ac tortor
+                    dignissim convallis aenean et tortor at risus viverra. Amet tellus cras adipiscing enim. Sapien
+                    faucibus et molestie ac feugiat. Neque aliquam vestibulum morbi blandit cursus. Elit pellentesque
+                    habitant morbi tristique senectus et netus. Ut enim blandit volutpat maecenas volutpat blandit
+                    aliquam etiam. Tellus cras adipiscing enim eu. Eget nulla facilisi etiam dignissim diam. Lorem ipsum
+                    dolor sit amet consectetur adipiscing elit. Sed egestas egestas fringilla phasellus faucibus.
+                  </p>
+                  <p>
+                    Orci a scelerisque purus semper eget duis. Luctus venenatis lectus magna fringilla. Eu scelerisque
+                    felis imperdiet proin fermentum. Sed sed risus pretium quam vulputate dignissim suspendisse in est.
+                    Nunc sed blandit libero volutpat sed. Ac turpis egestas integer eget aliquet nibh praesent tristique
+                    magna. Adipiscing commodo elit at imperdiet dui. Aenean euismod elementum nisi quis eleifend quam.
+                    Nec nam aliquam sem et tortor. Eget felis eget nunc lobortis mattis. Interdum velit euismod in
+                    pellentesque massa placerat duis ultricies lacus. A diam sollicitudin tempor id. Ultricies integer
+                    quis auctor elit sed vulputate mi sit. Massa enim nec dui nunc mattis enim ut tellus. Malesuada
+                    bibendum arcu vitae elementum curabitur. Mauris cursus mattis molestie a iaculis at. Faucibus nisl
+                    tincidunt eget nullam non nisi est sit amet. A iaculis at erat pellentesque adipiscing. Egestas
+                    egestas fringilla phasellus faucibus scelerisque eleifend donec.
+                  </p>
+                  <p>
+                    Malesuada bibendum arcu vitae elementum curabitur vitae. Diam maecenas ultricies mi eget mauris
+                    pharetra et ultrices. Aliquam malesuada bibendum arcu vitae elementum curabitur vitae nunc. Aliquam
+                    id diam maecenas ultricies. Cras fermentum odio eu feugiat pretium nibh ipsum. Pulvinar elementum
+                    integer enim neque volutpat ac. Congue quisque egestas diam in arcu cursus euismod quis viverra.
+                    Augue neque gravida in fermentum et sollicitudin ac orci. Scelerisque eu ultrices vitae auctor eu
+                    augue ut lectus arcu. Donec massa sapien faucibus et molestie ac feugiat sed lectus. Odio euismod
+                    lacinia at quis risus sed. Lectus nulla at volutpat diam. Egestas purus viverra accumsan in nisl
+                    nisi scelerisque eu. In est ante in nibh mauris cursus mattis. Nisl nisi scelerisque eu ultrices
+                    vitae auctor eu augue. Arcu risus quis varius quam quisque id diam. Ut tellus elementum sagittis
+                    vitae et. Mus mauris vitae ultricies leo integer malesuada nunc vel. Vitae aliquet nec ullamcorper
+                    sit amet risus nullam eget felis. Sit amet mattis vulputate enim nulla.
+                  </p>
+                </div>
+              </div>
+              <h2>Print Layout</h2>
+              <p>Press <kbd>Ctrl</kbd> + <kbd>P</kbd>. The header and the sidebar will not be shown.</p>
+              <p>
+                <button class="btn btn-primary" id="orientationButton">Toggle print orientaion</button>
+                <span class="ml-3">Current:</span>
+                <span id="orientationLabel">Portrait</span>
+              </p>
+            </main>
+            <footer class="px-2 pb-2 flex-shrink-1">
+              <hr />
+              Footer
+            </footer>
+          </div>
+        </div>
+      </div>
+    </div>
+    <script
+      src="https://code.jquery.com/jquery-3.6.0.min.js"
+      integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4="
+      crossorigin="anonymous"
+    ></script>
+    <script
+      src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js"
+      integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo"
+      crossorigin="anonymous"
+    ></script>
+    <script
+      src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js"
+      integrity="sha384-OgVRvuATP1z7JjHLkuOU7Xw704+h835Lr+6QL9UvYjZE3Ipu6Tp75j7Bh/kR0JKI"
+      crossorigin="anonymous"
+    ></script>
+    <script
+      src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-treeview/1.2.0/bootstrap-treeview.min.js"
+      integrity="sha512-Hyk+1XSRfagqzuSHE8M856g295mX1i5rfSV5yRugcYFlvQiE3BKgg5oFRfX45s7I8qzMYFa8gbFy9xMFbX7Lqw=="
+      crossorigin="anonymous"
+    ></script>
+    <script src="index.js"></script>
+  </body>
+</html>
