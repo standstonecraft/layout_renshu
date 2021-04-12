@@ -6,21 +6,13 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Document</title>
     <!-- https://getbootstrap.jp/docs/4.5/getting-started/introduction/ -->
-    <link
-      rel="stylesheet"
-      href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css"
-      integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk"
-      crossorigin="anonymous"
-    />
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/css/bootstrap.min.css" integrity="sha256-T/zFmO5s/0aSwc6ics2KLxlfbewyRz6UNw1s3Ppf5gE=" crossorigin="anonymous">
     <!-- https://icons.getbootstrap.com/ -->
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.4.1/font/bootstrap-icons.css" />
     <!-- https://github.com/jonmiles/bootstrap-treeview -->
-    <link
-      rel="stylesheet"
-      href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-treeview/1.2.0/bootstrap-treeview.min.css"
-      integrity="sha512-A81ejcgve91dAWmCGseS60zjrAdohm7PTcAjjiDWtw3Tcj91PNMa1gJ/ImrhG+DbT5V+JQ5r26KT5+kgdVTb5w=="
-      crossorigin="anonymous"
-    />
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-treeview@1.2.0/dist/bootstrap-treeview.min.css" integrity="sha256-ULjuiZ9iqqf97EETp/mZrnLusfOwISiI6AIL0IXShbc=" crossorigin="anonymous">
+    <!-- https://api.jqueryui.com/ -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/jquery-ui-dist@1.12.1/jquery-ui.min.css" integrity="sha256-rByPlHULObEjJ6XQxW/flG2r+22R5dKiAoef+aXWfik=" crossorigin="anonymous">
     <link rel="stylesheet" href="style.css" />
     <!-- print portrait by default -->
     <link rel="stylesheet" href="printLandscape.css" title="printLandscape" disabled="true" />
@@ -52,34 +44,39 @@
         </div>
         <div class="h-100 contentRight">
           <div class="h-100 d-flex flex-column">
-            <main class="px-2 bt-2 flex-grow-1 mb-auto">
+            <main class="px-2 pt-2 bt-2 flex-grow-1 mb-auto">
               <h2>Text</h2>
-              <p>
-                This page is demo about:
-                <ul>
-                  <li>Fixed layout (Bootstrap)
-                    <ul>
-                      <li>Fixed slim header</li>
-                      <li>Collapsible & Scrollable sticky sidebar</li>
-                      <li>Scrollable content area</li>
-                      <li>Fixed footer</li>
-                    </ul>
-                  </li>
-                  <li>Collapsible tree manu (Bootstrap Treeview)
-                    <ul>
-                      <li>Highlight menu item of opend page automatically</li>
-                    </ul>
-                  </li>
-                  <li>Icon font (Bootstrap Icons)</li>
-                  <li>Layout for printing
-                    <ul>
-                      <li>Print content only</li>
-                      <li>Print Full Width</li>
-                      <li>Force or switch orientation of pages</li>
-                    </ul>
-                  </li>
-                </ul>
-              </p>
+              <div>
+                <p>
+                  This page is demo about:
+                  <ul>
+                    <li>Fixed layout (Bootstrap)
+                      <ul>
+                        <li>Fixed slim header</li>
+                        <li>Collapsible & Scrollable sticky sidebar</li>
+                        <li>Scrollable content area</li>
+                        <li>Fixed footer</li>
+                      </ul>
+                    </li>
+                    <li>Tree manu (Bootstrap Treeview)
+                      <ul>
+                        <li>Collapse and expand nodes</li>
+                        <li>The menu item of opend page is expanded and highlighted automatically</li>
+                      </ul>
+                    </li>
+                    <li>Icon font (Bootstrap Icons)</li>
+                    <li>Layout for printing
+                      <ul>
+                        <li>Print content only</li>
+                        <li>Print Full Width</li>
+                        <li>Force or switch orientation of pages</li>
+                      </ul>
+                    </li>
+                    <li>Modal dialog (jQuery UI)</li>
+                  </ul>
+                </p>
+              </div>
+
               <h2>Overflow</h2>
               <div class="pr-3" style="width: max-content">
                 <table class="table table-bordered">
@@ -131,6 +128,24 @@
                   </tbody>
                 </table>
               </div>
+
+              <h2>Print Layout</h2>
+              <div>
+                <p>Press <kbd>Ctrl</kbd> + <kbd>P</kbd>. The header and the sidebar will not be shown.</p>
+                <p>
+                  <button class="btn btn-primary" id="orientationButton">Toggle print orientaion</button>
+                  <span class="ml-3">Current:</span>
+                  <span id="orientationLabel">Portrait</span>
+                </p>
+              </div>
+
+              <h2>Modal dialog</h2>
+              <p>
+                <button class="btn btn-primary" id="dialogButton">Show diolg</button>
+                <span class="ml-3">Selected color:</span>
+                <span id="selectedColor"></span>
+              </p>
+
               <h2>Texts for scroll</h2>
               <p>
                 <button
@@ -205,13 +220,6 @@
                   </p>
                 </div>
               </div>
-              <h2>Print Layout</h2>
-              <p>Press <kbd>Ctrl</kbd> + <kbd>P</kbd>. The header and the sidebar will not be shown.</p>
-              <p>
-                <button class="btn btn-primary" id="orientationButton">Toggle print orientaion</button>
-                <span class="ml-3">Current:</span>
-                <span id="orientationLabel">Portrait</span>
-              </p>
             </main>
             <footer class="px-2 pb-2 flex-shrink-1">
               <hr />
@@ -221,26 +229,27 @@
         </div>
       </div>
     </div>
-    <script
-      src="https://code.jquery.com/jquery-3.6.0.min.js"
-      integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4="
-      crossorigin="anonymous"
-    ></script>
+
+    <div id="dialog" title="The dialo">
+      <p>
+          Choose color:
+          <select name="colorSelect" id="colorSelect">
+            <option value="0"></option>
+            <option value="1">blue</option>
+            <option value="2">red</option>
+            <option value="3">orange</option>
+          </select>
+      </p>
+    </div>
+    <script src="https://cdn.jsdelivr.net/npm/jquery@3.6.0/dist/jquery.min.js" integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
     <script
       src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js"
       integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo"
       crossorigin="anonymous"
     ></script>
-    <script
-      src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js"
-      integrity="sha384-OgVRvuATP1z7JjHLkuOU7Xw704+h835Lr+6QL9UvYjZE3Ipu6Tp75j7Bh/kR0JKI"
-      crossorigin="anonymous"
-    ></script>
-    <script
-      src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-treeview/1.2.0/bootstrap-treeview.min.js"
-      integrity="sha512-Hyk+1XSRfagqzuSHE8M856g295mX1i5rfSV5yRugcYFlvQiE3BKgg5oFRfX45s7I8qzMYFa8gbFy9xMFbX7Lqw=="
-      crossorigin="anonymous"
-    ></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/js/bootstrap.min.js" integrity="sha256-7dA7lq5P94hkBsWdff7qobYkp9ope/L5LQy2t/ljPLo=" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap-treeview@1.2.0/dist/bootstrap-treeview.min.js" integrity="sha256-rmZZb5ESAjCE4Al5RfENzQBpw1VbShzLes76aW8c+kc=" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/jquery-ui-dist@1.12.1/jquery-ui.min.js" integrity="sha256-KM512VNnjElC30ehFwehXjx1YCHPiQkOPmqnrWtpccM=" crossorigin="anonymous"></script>
     <script src="index.js"></script>
   </body>
 </html>

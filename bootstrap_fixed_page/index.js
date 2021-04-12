@@ -1,4 +1,10 @@
 $(function () {
+  initializeSidebar();
+
+  initializeDialog();
+});
+
+function initializeSidebar() {
   $('#menuButton').on('click', e => {
     $('.contentLeft').toggleClass('menu-collapse');
     $('.contentRight').toggleClass('menu-collapse');
@@ -12,7 +18,7 @@ $(function () {
     togglePrintOrientation();
     $('#orientationLabel').text(isPrintOrientationPortrait() ? 'Portrait' : 'Landscape');
   });
-});
+}
 
 function getTree() {
   // To select target node, added 'targetid' property.
@@ -224,4 +230,41 @@ function isPrintOrientationPortrait() {
 function togglePrintOrientation() {
   // disable printLandscape when landscape
   $('link[title="printLandscape"]').attr('disabled', !isPrintOrientationPortrait());
+}
+
+function initializeDialog() {
+  $('#dialog').dialog({
+    autoOpen: false,
+    modal: true,
+    open: function (event, ui) {
+      // set overlay color
+      $('.ui-widget-overlay').css({
+        opacity: 0.3,
+        backgroundColor: 'black',
+      });
+
+      // initialize inputs
+      $('#colorSelect').val(0);
+    },
+    buttons: [
+      {
+        text: 'OK',
+        click: function () {
+          $('#selectedColor').text($('#colorSelect option:selected').text());
+          $(this).dialog('close');
+        },
+      },
+      {
+        text: 'Cancel',
+        click: function () {
+          $(this).dialog('close');
+        },
+      },
+    ],
+  });
+
+  $('#dialogButton').on('click', () => {
+    // show dialog
+    $('#dialog').dialog('open');
+  });
 }
