@@ -2,6 +2,7 @@ $(function () {
   initializeSidebar();
 
   initializeDialog();
+  initializeSecondDialog();
 });
 
 function initializeSidebar() {
@@ -236,6 +237,8 @@ function initializeDialog() {
   $('#dialog').dialog({
     autoOpen: false,
     modal: true,
+    width: 440,
+    // height: 440,
     open: function (event, ui) {
       // set overlay color
       $('.ui-widget-overlay').css({
@@ -245,12 +248,14 @@ function initializeDialog() {
 
       // initialize inputs
       $('#colorSelect').val(0);
+      $('#userInput').val('');
     },
     buttons: [
       {
         text: 'OK',
         click: function () {
           $('#selectedColor').text($('#colorSelect option:selected').text());
+          $('#selectedUsers').text($('#userInput').val());
           $(this).dialog('close');
         },
       },
@@ -266,5 +271,70 @@ function initializeDialog() {
   $('#dialogButton').on('click', () => {
     // show dialog
     $('#dialog').dialog('open');
+  });
+  $('#userButton').on('click', () => {
+    // show dialog
+    $('#second-dialog').dialog('open');
+  });
+}
+
+function initializeSecondDialog() {
+  $('#second-dialog').dialog({
+    autoOpen: false,
+    modal: true,
+    width: 440,
+    // height: 440,
+    open: function (event, ui) {
+      // It's no need to set overlay because of parent dialog
+      // set overlay color
+      // $('.ui-widget-overlay').css({
+      //   opacity: 0,
+      //   backgroundColor: 'black',
+      // });
+
+      // initialize inputs
+      // clear selection
+      $('#userTable .ui-selected').removeClass('ui-selected');
+    },
+    buttons: [
+      {
+        text: 'OK',
+        click: function () {
+          // join selected value
+          $('#userInput').val(
+            [...$('#userTable > tbody > tr.ui-selectee.ui-selected > td:nth-child(2)')]
+              .map(e => e.textContent)
+              .join(', ')
+          );
+          $(this).dialog('close');
+        },
+      },
+      {
+        text: 'Cancel',
+        click: function () {
+          $(this).dialog('close');
+        },
+      },
+    ],
+  });
+
+  $('#dialogButton').on('click', () => {
+    // show dialog
+    $('#dialog').dialog('open');
+  });
+
+  $('#userTable').stickyTableHeaders({ scrollableArea: $('.userTableContainer')[0] });
+
+  // selectable rows
+  $('#userTable').selectable({
+    filter: 'tr',
+    // // select one item only
+    // selected: function(event, ui) {
+    //     $(ui.selected).addClass("ui-selected").siblings().removeClass("ui-selected").each(
+    //         function(key,value){
+    //             $(value).find('*').removeClass("ui-selected");
+    //         }
+    //     );
+    // }
   });
 }

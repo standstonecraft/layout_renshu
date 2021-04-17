@@ -6,13 +6,28 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Document</title>
     <!-- https://getbootstrap.jp/docs/4.5/getting-started/introduction/ -->
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/css/bootstrap.min.css" integrity="sha256-T/zFmO5s/0aSwc6ics2KLxlfbewyRz6UNw1s3Ppf5gE=" crossorigin="anonymous">
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/css/bootstrap.min.css"
+      integrity="sha256-T/zFmO5s/0aSwc6ics2KLxlfbewyRz6UNw1s3Ppf5gE="
+      crossorigin="anonymous"
+    />
     <!-- https://icons.getbootstrap.com/ -->
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.4.1/font/bootstrap-icons.css" />
     <!-- https://github.com/jonmiles/bootstrap-treeview -->
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-treeview@1.2.0/dist/bootstrap-treeview.min.css" integrity="sha256-ULjuiZ9iqqf97EETp/mZrnLusfOwISiI6AIL0IXShbc=" crossorigin="anonymous">
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/bootstrap-treeview@1.2.0/dist/bootstrap-treeview.min.css"
+      integrity="sha256-ULjuiZ9iqqf97EETp/mZrnLusfOwISiI6AIL0IXShbc="
+      crossorigin="anonymous"
+    />
     <!-- https://api.jqueryui.com/ -->
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/jquery-ui-dist@1.12.1/jquery-ui.min.css" integrity="sha256-rByPlHULObEjJ6XQxW/flG2r+22R5dKiAoef+aXWfik=" crossorigin="anonymous">
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/jquery-ui-dist@1.12.1/jquery-ui.min.css"
+      integrity="sha256-rByPlHULObEjJ6XQxW/flG2r+22R5dKiAoef+aXWfik="
+      crossorigin="anonymous"
+    />
     <link rel="stylesheet" href="style.css" />
     <!-- print portrait by default -->
     <link rel="stylesheet" href="printLandscape.css" title="printLandscape" disabled="true" />
@@ -47,34 +62,55 @@
             <main class="px-2 pt-2 bt-2 flex-grow-1 mb-auto">
               <h2>Text</h2>
               <div>
-                <p>
-                  This page is demo about:
-                  <ul>
-                    <li>Fixed layout (Bootstrap)
-                      <ul>
-                        <li>Fixed slim header</li>
-                        <li>Collapsible & Scrollable sticky sidebar</li>
-                        <li>Scrollable content area</li>
-                        <li>Fixed footer</li>
-                      </ul>
-                    </li>
-                    <li>Tree manu (Bootstrap Treeview)
-                      <ul>
-                        <li>Collapse and expand nodes</li>
-                        <li>The menu item of opend page is expanded and highlighted automatically</li>
-                      </ul>
-                    </li>
-                    <li>Icon font (Bootstrap Icons)</li>
-                    <li>Layout for printing
-                      <ul>
-                        <li>Print content only</li>
-                        <li>Print Full Width</li>
-                        <li>Force or switch orientation of pages</li>
-                      </ul>
-                    </li>
-                    <li>Modal dialog (jQuery UI)</li>
-                  </ul>
-                </p>
+                <p>This page is demo about:</p>
+                <ul>
+                  <li>
+                    Fixed layout (<a href="https://getbootstrap.jp/">Bootstrap</a> 4.5)
+                    <ul>
+                      <li>Fixed slim header</li>
+                      <li>Collapsible & Scrollable sticky sidebar</li>
+                      <li>Scrollable content area</li>
+                      <li>Fixed footer</li>
+                    </ul>
+                  </li>
+                  <li>
+                    Tree manu (<a href="https://github.com/jonmiles/bootstrap-treeview">jonmiles/bootstrap-treeview</a>)
+                    <ul>
+                      <li>Collapse and expand nodes</li>
+                      <li>The menu item of opend page is expanded and highlighted automatically</li>
+                    </ul>
+                  </li>
+                  <li>Icon font (<a href="https://icons.getbootstrap.com/">Bootstrap Icons</a>)</li>
+                  <li>
+                    Layout for printing
+                    <ul>
+                      <li>Print content only</li>
+                      <li>Print Full Width</li>
+                      <li>Force or switch orientation of pages</li>
+                    </ul>
+                  </li>
+                  <li>
+                    Modal dialog (<a href="https://jqueryui.com/">jQuery UI</a>)
+                    <ul>
+                      <li>Multiple dialog</li>
+                    </ul>
+                  </li>
+                  <li>
+                    Rich Table
+                    <ul>
+                      <li>
+                        Fixed Header (<a href="https://github.com/jmosbech/StickyTableHeaders/">StickyTableHeaders</a> )
+                      </li>
+                      <li>
+                        Selectable rows (<a href="https://jqueryui.com/">jQuery UI</a>)<br />
+                        Example:
+                        <a href="https://gist.github.com/adamboduch/6113356"
+                          >Use jquery.ui.selectable to select table rows.</a
+                        >
+                      </li>
+                    </ul>
+                  </li>
+                </ul>
               </div>
 
               <h2>Overflow</h2>
@@ -139,11 +175,14 @@
                 </p>
               </div>
 
-              <h2>Modal dialog</h2>
+              <h2>Modal dialogs and fixed selectable table</h2>
               <p>
                 <button class="btn btn-primary" id="dialogButton">Show diolg</button>
                 <span class="ml-3">Selected color:</span>
                 <span id="selectedColor"></span>
+                <span>, </span>
+                <span class="ml-3">Selected users:</span>
+                <span id="selectedUsers"></span>
               </p>
 
               <h2>Texts for scroll</h2>
@@ -230,26 +269,148 @@
       </div>
     </div>
 
-    <div id="dialog" title="The dialo">
+    <div id="dialog" title="The dialog">
       <p>
-          Choose color:
-          <select name="colorSelect" id="colorSelect">
-            <option value="0"></option>
-            <option value="1">blue</option>
-            <option value="2">red</option>
-            <option value="3">orange</option>
-          </select>
+        Choose color:
+        <select name="colorSelect" id="colorSelect">
+          <option value="0"></option>
+          <option value="1">blue</option>
+          <option value="2">red</option>
+          <option value="3">orange</option>
+        </select>
+      </p>
+      <p>
+        Input User:
+        <input type="text" name="userInput" id="userInput" />
+        <button id="userButton">Search</button>
       </p>
     </div>
-    <script src="https://cdn.jsdelivr.net/npm/jquery@3.6.0/dist/jquery.min.js" integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
+    <div id="second-dialog" title="The 2nd dialog">
+      <div class="userTableContainer">
+        Select user.
+        <table id="userTable" class="ui-widget table table-bordered table-striped table-sm">
+          <thead class="ui-widget-header">
+            <tr>
+              <td>ID</td>
+              <td>Name</td>
+            </tr>
+          </thead>
+          <tbody class="ui-widget-content ui-state-default">
+            <tr>
+              <td>1</td>
+              <td>Thaïs Caron</td>
+            </tr>
+            <tr>
+              <td>2</td>
+              <td>Engbert Binnekamp</td>
+            </tr>
+            <tr>
+              <td>3</td>
+              <td>Felícia Cavalcanti</td>
+            </tr>
+            <tr>
+              <td>4</td>
+              <td>Lotti Jost</td>
+            </tr>
+            <tr>
+              <td>5</td>
+              <td>Anália Novaes</td>
+            </tr>
+            <tr>
+              <td>6</td>
+              <td>Nalan Başoğlu</td>
+            </tr>
+            <tr>
+              <td>7</td>
+              <td>Polina Henke</td>
+            </tr>
+            <tr>
+              <td>8</td>
+              <td>Ceylan Denkel</td>
+            </tr>
+            <tr>
+              <td>9</td>
+              <td>Cristian Hernandez</td>
+            </tr>
+            <tr>
+              <td>10</td>
+              <td>Gabrielle Lemaire</td>
+            </tr>
+            <tr>
+              <td>11</td>
+              <td>Julia Macdonald</td>
+            </tr>
+            <tr>
+              <td>12</td>
+              <td>Arthur Li</td>
+            </tr>
+            <tr>
+              <td>13</td>
+              <td>Mathéo Dupuis</td>
+            </tr>
+            <tr>
+              <td>14</td>
+              <td>Avery Jenkins</td>
+            </tr>
+            <tr>
+              <td>15</td>
+              <td>Terra Hayes</td>
+            </tr>
+            <tr>
+              <td>16</td>
+              <td>Cecílio Martins</td>
+            </tr>
+            <tr>
+              <td>17</td>
+              <td>Mikkel Larsen</td>
+            </tr>
+            <tr>
+              <td>18</td>
+              <td>Milla Lepisto</td>
+            </tr>
+            <tr>
+              <td>19</td>
+              <td>Amanda Perala</td>
+            </tr>
+            <tr>
+              <td>20</td>
+              <td>Catalina Caballero</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+      Data from: <a href="https://randomuser.me/">RANDOM USER GENERATOR</a>
+    </div>
+    <script
+      src="https://cdn.jsdelivr.net/npm/jquery@3.6.0/dist/jquery.min.js"
+      integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4="
+      crossorigin="anonymous"
+    ></script>
     <script
       src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js"
       integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo"
       crossorigin="anonymous"
     ></script>
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/js/bootstrap.min.js" integrity="sha256-7dA7lq5P94hkBsWdff7qobYkp9ope/L5LQy2t/ljPLo=" crossorigin="anonymous"></script>
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap-treeview@1.2.0/dist/bootstrap-treeview.min.js" integrity="sha256-rmZZb5ESAjCE4Al5RfENzQBpw1VbShzLes76aW8c+kc=" crossorigin="anonymous"></script>
-    <script src="https://cdn.jsdelivr.net/npm/jquery-ui-dist@1.12.1/jquery-ui.min.js" integrity="sha256-KM512VNnjElC30ehFwehXjx1YCHPiQkOPmqnrWtpccM=" crossorigin="anonymous"></script>
+    <script
+      src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/js/bootstrap.min.js"
+      integrity="sha256-7dA7lq5P94hkBsWdff7qobYkp9ope/L5LQy2t/ljPLo="
+      crossorigin="anonymous"
+    ></script>
+    <script
+      src="https://cdn.jsdelivr.net/npm/bootstrap-treeview@1.2.0/dist/bootstrap-treeview.min.js"
+      integrity="sha256-rmZZb5ESAjCE4Al5RfENzQBpw1VbShzLes76aW8c+kc="
+      crossorigin="anonymous"
+    ></script>
+    <script
+      src="https://cdn.jsdelivr.net/npm/jquery-ui-dist@1.12.1/jquery-ui.min.js"
+      integrity="sha256-KM512VNnjElC30ehFwehXjx1YCHPiQkOPmqnrWtpccM="
+      crossorigin="anonymous"
+    ></script>
+    <script
+      src="https://cdn.jsdelivr.net/npm/sticky-table-headers@0.1.24/js/jquery.stickytableheaders.min.js"
+      integrity="sha256-kTXemhq5kUIpZCEmAXiorotGjAsJH9s0giJaAV1BUXk="
+      crossorigin="anonymous"
+    ></script>
     <script src="index.js"></script>
   </body>
 </html>
