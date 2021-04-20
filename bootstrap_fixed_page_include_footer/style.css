@@ -62,6 +62,23 @@ aside > div > div {
   padding: 0.25rem 1.25rem;
 }
 
+/* selectable table: setting of selected row */
+.ui-selected,
+.ui-selecting,
+.table-striped tbody .ui-selected:nth-of-type(odd),
+.table-striped tbody .ui-selecting:nth-of-type(odd) {
+  background-color: #fffa90;
+}
+.userTableContainer {
+  max-height: 200px;
+  overflow-y: scroll;
+}
+thead,
+table .ui-widget-header {
+  background-color: blue;
+  color: white;
+}
+
 /* color for debug */
 .contentLeft {
   background-color: aqua;
@@ -86,21 +103,4 @@ main > * {
     overflow: visible !important;
     width: max-content !important;
   }
-}
-
-/* selectable table: setting of selected row */
-.ui-selected,
-.ui-selecting,
-.table-striped tbody .ui-selected:nth-of-type(odd),
-.table-striped tbody .ui-selecting:nth-of-type(odd) {
-  background-color: #fffa90;
-}
-.userTableContainer {
-  max-height: 200px;
-  overflow-y: scroll;
-}
-thead,
-table .ui-widget-header {
-  background-color: blue;
-  color: white;
 }
