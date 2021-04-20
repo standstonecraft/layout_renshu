@@ -1,6 +1,6 @@
 $(function () {
   initializeSidebar();
-
+  initializeContents();
   initializeDialog();
   initializeSecondDialog();
 });
@@ -231,6 +231,17 @@ function isPrintOrientationPortrait() {
 function togglePrintOrientation() {
   // disable printLandscape when landscape
   $('link[title="printLandscape"]').attr('disabled', !isPrintOrientationPortrait());
+}
+
+function initializeContents() {
+  $('#onceButton').on('click', () => {
+    $('#onceButton').attr('disabled', 1);
+    $('#onceSpinner').removeClass('d-none');
+    window.setTimeout(() => {
+      $('#onceButton').removeAttr('disabled');
+      $('#onceSpinner').addClass('d-none');
+    }, 5000);
+  });
 }
 
 function initializeDialog() {

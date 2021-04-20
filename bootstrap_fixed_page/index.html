@@ -96,6 +96,10 @@
                     </ul>
                   </li>
                   <li>
+                    "Submit once" button <br />
+                    The button prevents double submit
+                  </li>
+                  <li>
                     Rich Table
                     <ul>
                       <li>
@@ -183,6 +187,19 @@
                 <span>, </span>
                 <span class="ml-3">Selected users:</span>
                 <span id="selectedUsers"></span>
+              </p>
+
+              <h2>"Submit once" button</h2>
+              <p>
+                <button class="btn btn-primary" id="onceButton">
+                  <span
+                    class="spinner-border spinner-border-sm d-none"
+                    id="onceSpinner"
+                    role="status"
+                    aria-hidden="true"
+                  ></span>
+                  Submit
+                </button>
               </p>
 
               <h2>Collapse</h2>
